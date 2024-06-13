@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
-import { render } from 'react-dom';
+import TaskList from './Components/TaskList';
+import TaskForm from './Components/TaskForm';
 const page = () => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
@@ -38,24 +39,9 @@ const page = () => {
     return (
         <>
             <h1 className='bg-black text-white text-center font-bold p-5 text-4xl'>My Todo-List</h1>
-
-            <form action={submitHandler}>
-                <input type='text' className='text-2xl border-black border-4 m-8 px-4 py-2' placeholder='Enter Title Here' value={title} onChange={(elem) => {
-                    setTitle(elem.target.value);
-                }}></input>
-
-                <input type='text' className='text-2xl border-black border-4 m-8 px-4 py-2' placeholder='Title Description' value={desc} onChange={(elem) => {
-                    setDesc(elem.target.value);
-                }}></input>
-
-                <button type='submit' className='text-2xl bg-black text-white px-4 py-3 rounded m-5'>Add Task </button>
-            </form>
+            <TaskForm title = {title} desc = {desc} submitHandler = {submitHandler} setTitle = {setTitle} setDesc = {setDesc}/>
             <hr />
-            <div className='p-8 bg-slate-200'>
-                <ul>
-                    {renderTask}
-                </ul>
-            </div>
+            <TaskList render = {renderTask}/>
         </>
     )
 }
