@@ -40,7 +40,7 @@ const Page = () => {
 
     return (
         <>
-            <div className="flex justify-center  bg-blue-600 text-white  m-0 font-bold p-5 text-2xl">
+            <div className="mx-auto bg-blue-500 text-center text-white text-2xl border-white rounded border-2 m-3 py-2">
                 My Todo-List
             </div>
             <div className="container mx-auto px-4 py-6">
