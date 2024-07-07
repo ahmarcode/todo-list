@@ -1,16 +1,13 @@
-"use client"
 import React from 'react';
 
-const TaskList = (props) => {
+const TaskList = ({ render }) => {
     return (
-        <>
-        <div className='p-8 bg-slate-50000'>
-                <ul>
-                    {props.render}
-                </ul>
-            </div>
-        </>
-    )
-}
+        <div className='bg-gray-200'>
+            <ul>
+                {render}
+            </ul>
+        </div>
+    );
+};
 
 export default TaskList;
