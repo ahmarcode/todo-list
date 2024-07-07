@@ -1,9 +1,12 @@
 const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = {
+const nextConfig = {
+  output: 'export',
   assetPrefix: isProd ? '/todo-list/' : '',
   basePath: isProd ? '/todo-list' : '',
   images: {
     unoptimized: true,
   },
 };
+
+export default nextConfig;
