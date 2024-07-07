@@ -2,48 +2,62 @@
 import React, { useState } from 'react';
 import TaskList from './Components/TaskList';
 import TaskForm from './Components/TaskForm';
-const page = () => {
+
+const Page = () => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [mainTask, setMainTask] = useState([]);
+
     const submitHandler = (e) => {
         setMainTask([...mainTask, { title, desc }]);
-        console.log(title);
-        console.log(desc);
         setTitle("");
         setDesc("");
-        console.log(mainTask);
     };
 
     const deleteHandler = (i) => {
-        let copyTask = [...mainTask]
-        copyTask.splice(i,1);
-        setMainTask(copyTask)
-    }
+        let copyTask = [...mainTask];
+        copyTask.splice(i, 1);
+        setMainTask(copyTask);
+    };
 
-    let renderTask = <h2>No Task Available</h2>
+    let renderTask = <h2 className="text-center mt-5 text-gray-600">No Task Available</h2>;
     if (mainTask.length > 0) {
-        renderTask = mainTask.map((t, i) => {
-            return <>
-                <li key={i} className='flex items-center justify-between mb-8'>
-                    <div className='flex justify-between mb-5 w-1/2'>
-                        <h5 className='text-2xl font-semibold'>{t.title}</h5>
-                        <h6 className='text-lg font-medium'>{t.desc}</h6>
-                    </div>
-                    <button onClick={() => {deleteHandler(i)}} className='bg-red-400 text-white py-4 px-2 rounded font-bold'>Delete</button>
-                </li>
-            </>
-        })
+        renderTask = mainTask.map((t, i) => (
+            <li key={i} className="flex flex-col sm:flex-row items-center justify-between mb-4 w-full bg-white shadow p-4 rounded-lg">
+                <div className="flex flex-col sm:flex-row justify-between w-full sm:w-3/4">
+                    <h5 className="text-xl font-semibold text-gray-800">{t.title}</h5>
+                    <h6 className="text-base font-medium text-gray-600 mt-2 sm:mt-0">{t.desc}</h6>
+                </div>
+                <button 
+                    onClick={() => deleteHandler(i)} 
+                    className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded font-bold mt-4 sm:mt-0 sm:ml-4"
+                >
+                    Delete
+                </button>
+            </li>
+        ));
     }
 
     return (
         <>
-            <h1 className='bg-black text-white text-center font-bold p-5 text-4xl'>My Todo-List</h1>
-            <TaskForm title = {title} desc = {desc} submitHandler = {submitHandler} setTitle = {setTitle} setDesc = {setDesc}/>
-            <hr />
-            <TaskList render = {renderTask}/>
+            <div className="flex justify-center bg-blue-600 text-white  m-0 font-bold p-5 text-2xl">
+                My Todo-List
+            </div>
+            <div className="container mx-auto px-4 py-6">
+                <TaskForm 
+                    title={title} 
+                    desc={desc} 
+                    submitHandler={submitHandler} 
+                    setTitle={setTitle} 
+                    setDesc={setDesc} 
+                />
+                <hr className="my-4 border-gray-300"/>
+                <ul>
+                    {renderTask}
+                </ul>
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default page;
+export default Page;
