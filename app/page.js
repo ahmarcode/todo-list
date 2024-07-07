@@ -40,10 +40,7 @@ const Page = () => {
 
     return (
         <>
-            <div className='flex justify-center align-middle container mx-auto'></div>
-            <div className=" text-4xl text-center bg-blue-400 text-white pt-4 pb-4 mr-[-20px]">
-                My Todo-List
-            </div>
+            <h1 className="text-4xl font-bold text-center pt-4 pb-4  text-gray-900 mb-8">Welcome to Our Website</h1>
 
             <div className="container mx-auto ml-2">
                 <TaskForm
@@ -53,7 +50,7 @@ const Page = () => {
                     setTitle={setTitle}
                     setDesc={setDesc}
                 />
-                <hr className="my-4 border-gray-300" />
+                <hr/>
                 <ul>
                     {renderTask}
                 </ul>
