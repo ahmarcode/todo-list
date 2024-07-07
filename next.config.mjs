@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const isProd = process.env.NODE_ENV === 'production';
 
-export default nextConfig;
+module.exports = {
+  assetPrefix: isProd ? '/todo-list/' : '',
+  basePath: isProd ? '/todo-list' : '',
+  images: {
+    unoptimized: true,
+  },
+};
