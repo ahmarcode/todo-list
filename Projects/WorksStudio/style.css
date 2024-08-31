@@ -200,31 +200,22 @@ html, body {
 #page3 {
     padding: 64px 20px;
     margin: 0;
-    height: 550vh;
+    /* height: 550vh; */
     width: 100%;
     background-color: white;
 }
 
-@media (max-width: 1200px) {
-    #page3 {
-        height: 250vh; /* Adjust this value as needed for mobile */
-    }
-}
-
-@media (max-width: 1200px ) {
-    #page3 {
-        height: 250vh; /* Adjust this value as needed for mobile */
-    }
-}
-
 
 .image-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    /* flex-wrap: wrap; */
 }
-
 .image-div {
+    /* height: 40vw; */
+    width: 30vw;
+    margin: 30px 10px; 
     position: relative;
     overflow: hidden;
     aspect-ratio: 3 / 2; /* Adjust aspect ratio to match your images */
@@ -234,7 +225,7 @@ html, body {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .overlay {
@@ -253,9 +244,6 @@ html, body {
 
 .overlay p {
     font-size: 2.5vw;
-    
-    font-family: "Freight big pro";
-
     text-transform: uppercase;
     text-align: center;
     color: white;
@@ -270,6 +258,21 @@ html, body {
 .image-div:hover img {
     transform: scale(1.1);
 }
+
+.line:nth-child(1) .image-div:nth-child(2) {
+    height: 800px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #back {
     position: absolute;
