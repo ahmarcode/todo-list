@@ -21,7 +21,7 @@ html, body {
     justify-content: center;
     z-index: 99;
     text-align: center;
-    display: none;
+    /* display: none; */
 }
 
 #loader h1 {
